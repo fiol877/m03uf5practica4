@@ -17,16 +17,17 @@ public class CuentaCorrienteADebito extends CuentaCorritenteImpl {
     //Solo se da un abono si hay saldo, sino se lanza una excepcion
     @Override
     public void abona(double abono) {
-        if(getSaldo() <= abono){
-            setSaldo(getSaldo() - abono); 
-        } else {
-            throw new UnsupportedOperationException("No tens suficient saldo per realitzar aquest abono."); //To change body of generated methods, choose Tools | Templates.
+        if (checkAbono(abono)) {
+            if (getSaldo() >= abono) {
+                setSaldo(getSaldo() - abono);
+            } else {
+                throw new UnsupportedOperationException("No tens suficient saldo per realitzar aquest abono."); //To change body of generated methods, choose Tools | Templates.
+            }
         }
-        
     }
 
     public CuentaCorrienteADebito(String titular, double saldo) {
         super(titular, saldo);
     }
-    
+
 }

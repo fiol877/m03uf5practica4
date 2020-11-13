@@ -14,15 +14,17 @@ public class CuentaCorrienteACreditoGold extends CuentaCorrienteACredito {
     public CuentaCorrienteACreditoGold(String titular, double saldo) {
         super(titular, saldo);
     }
-    
+
     //Esta cuenta permite un descubierto de hasta 3000 euros, si es más lanza una excepcion.
     @Override
     public void abona(double abono) {
-        if((getSaldo()+3000) <= abono){
-            setSaldo(getSaldo() - abono); 
-        } else {
-            throw new UnsupportedOperationException("No tens suficient saldo per realitzar aquest abono."); //To change body of generated methods, choose Tools | Templates.
+        if (checkAbono(abono)) {
+            if ((getSaldo() + 3000) >= abono) {
+                setSaldo(getSaldo() - abono);
+            } else {
+                throw new UnsupportedOperationException("No tens suficient saldo per realitzar aquest abono."); //To change body of generated methods, choose Tools | Templates.
+            }
         }
     }
-    
+
 }

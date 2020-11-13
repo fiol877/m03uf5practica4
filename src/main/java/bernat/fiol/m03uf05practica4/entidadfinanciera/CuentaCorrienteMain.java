@@ -6,11 +6,9 @@ package bernat.fiol.m03uf05practica4.entidadfinanciera;
  */
 public class CuentaCorrienteMain {
     public static void main(String[] args) {
-        CuentaCorriente conta = new CuentaCorrienteADebito("asdsad", 1000.0);
+        CuentaCorritenteImpl conta = new CuentaCorrienteADebito("asdsad", 1000.0);
         conta.ingresa(1000.0);
-        conta.abona(99.0);
-        System.out.println(conta);
-        
-        
+        //conta.abona(-999.0);
+        System.out.println(conta.getSaldo());
     }
 }
