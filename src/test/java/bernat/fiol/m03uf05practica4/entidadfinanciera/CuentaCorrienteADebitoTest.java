@@ -42,12 +42,48 @@ public class CuentaCorrienteADebitoTest {
      */
     @Test
     public void testAbona() {
-        System.out.println("abona");
-        double abono = 0.0;
-        CuentaCorrienteADebito instance = null;
-        instance.abona(abono);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        CuentaCorritenteImpl conta = new CuentaCorrienteADebito("asdsad", 1000.0);
+        conta.abona(999.0);
+        double expected = 1.0;
+        
+        assertEquals(expected, conta.getSaldo(), 2);
+    }
+    
+    
+    @Test(expected = UnsupportedOperationException.class)
+    public void testAbonaError() {
+        CuentaCorritenteImpl conta = new CuentaCorrienteADebito("asdsad", 1000.0);
+        conta.abona(-999.0);
+        double expected = 1.0;
+        
+        assertEquals(expected, conta.getSaldo(), 2);
+    }
+    
+    @Test(expected = UnsupportedOperationException.class)
+    public void testAbonaErrorSuperior() {
+        CuentaCorritenteImpl conta = new CuentaCorrienteADebito("asdsad", 1000.0);
+        conta.abona(1999.0);
+        double expected = 1.0;
+        
+        assertEquals(expected, conta.getSaldo(), 2);
+    }
+    
+    @Test
+    public void testIngresa() {
+        CuentaCorritenteImpl conta = new CuentaCorrienteADebito("asdsad", 1000.0);
+        conta.ingresa(100.0);
+        double expected = 1100.0;
+        
+        assertEquals(expected, conta.getSaldo(), 2);
+    }
+    
+    @Test(expected = UnsupportedOperationException.class)
+    public void testIngresaError() {
+        CuentaCorritenteImpl conta = new CuentaCorrienteADebito("asdsad", 1000.0);
+        conta.ingresa(-100.0);
+        double expected = 1100.0;
+        
+        assertEquals(expected, conta.getSaldo(), 2);
     }
     
 }
