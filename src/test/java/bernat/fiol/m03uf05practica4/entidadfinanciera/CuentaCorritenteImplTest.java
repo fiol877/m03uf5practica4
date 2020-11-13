@@ -16,9 +16,9 @@ import static org.junit.Assert.*;
  *
  * @author Bernat
  */
-public class CuentaCorrienteACreditoPlatinumTest {
+public class CuentaCorritenteImplTest {
     
-    public CuentaCorrienteACreditoPlatinumTest() {
+    public CuentaCorritenteImplTest() {
     }
     
     @BeforeClass
@@ -37,34 +37,32 @@ public class CuentaCorrienteACreditoPlatinumTest {
     public void tearDown() {
     }
 
-    /**
-     * Test of abona method, of class CuentaCorrienteACreditoPlatinum.
-     */
-    @Test
-    public void testAbona() {
-        CuentaCorritenteImpl conta = new CuentaCorrienteACreditoPlatinum("asdsad", 1000.0);
-        conta.abona(110.0);
-        double expected = 890;
-        
-        assertEquals(expected, conta.getSaldo(), 2);
-    }
-    
-    @Test
-    public void testAbonaDescubert() {
-        CuentaCorritenteImpl conta = new CuentaCorrienteACreditoPlatinum("asdsad", 1000.0);
-        conta.abona(6000.0);
-        double expected = -5000;
+@Test
+    public void testIngresa() {
+        CuentaCorritenteImpl conta = new CuentaCorrienteADebito("asdsad", 1000.0);
+        conta.ingresa(100.0);
+        double expected = 1100.0;
         
         assertEquals(expected, conta.getSaldo(), 2);
     }
     
     @Test(expected = UnsupportedOperationException.class)
-    public void testAbonaErrorSaldo() {
-        CuentaCorritenteImpl conta = new CuentaCorrienteACreditoPlatinum("asdsad", 1000.0);
-        conta.abona(6001.0);
-        double expected = -4000;
+    public void testIngresaError() {
+        CuentaCorritenteImpl conta = new CuentaCorrienteADebito("asdsad", 1000.0);
+        conta.ingresa(-100.0);
+        double expected = 1100.0;
         
         assertEquals(expected, conta.getSaldo(), 2);
     }
+    
+    @Test(expected = UnsupportedOperationException.class)
+    public void testAbonaError() {
+        CuentaCorritenteImpl conta = new CuentaCorrienteADebito("asdsad", 1000.0);
+        conta.abona(-999.0);
+        double expected = 1.0;
+        
+        assertEquals(expected, conta.getSaldo(), 2);
+    }
+    
     
 }

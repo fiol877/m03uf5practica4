@@ -22,7 +22,7 @@ public class CuentaCorrienteACreditoGold extends CuentaCorrienteACredito {
             if ((getSaldo() + 3000) >= abono) {
                 setSaldo(getSaldo() - abono);
             } else {
-                throw new UnsupportedOperationException("No tens suficient saldo per realitzar aquest abono."); //To change body of generated methods, choose Tools | Templates.
+                throw new UnsupportedOperationException("Has sobrepasat el descubert de 3000 euros."); //To change body of generated methods, choose Tools | Templates.
             }
         }
     }

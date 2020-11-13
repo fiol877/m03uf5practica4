@@ -40,14 +40,32 @@ public class CuentaCorrienteACreditoGoldTest {
     /**
      * Test of abona method, of class CuentaCorrienteACreditoGold.
      */
+    
     @Test
     public void testAbona() {
-        System.out.println("abona");
-        double abono = 0.0;
-        CuentaCorrienteACreditoGold instance = null;
-        instance.abona(abono);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        CuentaCorritenteImpl conta = new CuentaCorrienteACreditoGold("asdsad", 1000.0);
+        conta.abona(400);
+        double expected = 600;
+        
+        assertEquals(expected, conta.getSaldo(), 2);
+    }
+    
+    @Test
+    public void testAbonaDescubert() {
+        CuentaCorritenteImpl conta = new CuentaCorrienteACreditoGold("asdsad", 1000.0);
+        conta.abona(4000.0);
+        double expected = -3000;
+        
+        assertEquals(expected, conta.getSaldo(), 2);
+    }
+    
+    @Test(expected = UnsupportedOperationException.class)
+    public void testAbonaErrorSaldo() {
+        CuentaCorritenteImpl conta = new CuentaCorrienteACreditoGold("asdsad", 1000.0);
+        conta.abona(4001.0);
+        double expected = -3000;
+        
+        assertEquals(expected, conta.getSaldo(), 2);
     }
     
 }

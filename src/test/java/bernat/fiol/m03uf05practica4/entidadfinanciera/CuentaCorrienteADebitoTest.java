@@ -37,23 +37,12 @@ public class CuentaCorrienteADebitoTest {
     public void tearDown() {
     }
 
-    /**
-     * Test of abona method, of class CuentaCorrienteADebito.
-     */
+
+    //Test amb un abono realitzat correctement
     @Test
     public void testAbona() {
         CuentaCorritenteImpl conta = new CuentaCorrienteADebito("asdsad", 1000.0);
         conta.abona(999.0);
-        double expected = 1.0;
-        
-        assertEquals(expected, conta.getSaldo(), 2);
-    }
-    
-    
-    @Test(expected = UnsupportedOperationException.class)
-    public void testAbonaError() {
-        CuentaCorritenteImpl conta = new CuentaCorrienteADebito("asdsad", 1000.0);
-        conta.abona(-999.0);
         double expected = 1.0;
         
         assertEquals(expected, conta.getSaldo(), 2);
@@ -64,24 +53,6 @@ public class CuentaCorrienteADebitoTest {
         CuentaCorritenteImpl conta = new CuentaCorrienteADebito("asdsad", 1000.0);
         conta.abona(1999.0);
         double expected = 1.0;
-        
-        assertEquals(expected, conta.getSaldo(), 2);
-    }
-    
-    @Test
-    public void testIngresa() {
-        CuentaCorritenteImpl conta = new CuentaCorrienteADebito("asdsad", 1000.0);
-        conta.ingresa(100.0);
-        double expected = 1100.0;
-        
-        assertEquals(expected, conta.getSaldo(), 2);
-    }
-    
-    @Test(expected = UnsupportedOperationException.class)
-    public void testIngresaError() {
-        CuentaCorritenteImpl conta = new CuentaCorrienteADebito("asdsad", 1000.0);
-        conta.ingresa(-100.0);
-        double expected = 1100.0;
         
         assertEquals(expected, conta.getSaldo(), 2);
     }
