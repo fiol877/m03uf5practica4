@@ -13,9 +13,7 @@ package bernat.fiol.m03uf05practica4.entidadfinanciera;
  * 
  */
 public interface CuentaCorriente {
-    
     void ingresa(double ingreso);
-    
     void abona(double abono);
-    
+
 }

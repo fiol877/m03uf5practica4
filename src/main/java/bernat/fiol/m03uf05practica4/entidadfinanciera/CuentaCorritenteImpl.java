@@ -11,31 +11,40 @@ package bernat.fiol.m03uf05practica4.entidadfinanciera;
  */
 public abstract class CuentaCorritenteImpl implements CuentaCorriente {
     
-    private String titular;
     private double saldo;
+    private String titular;
+    
+    
+    public void ingresa(double ingreso) {
+        saldo += ingreso;
+    }
+    
+    public void abona(double abono){}
 
     public CuentaCorritenteImpl(String titular, double saldo) {
+        this.saldo = saldo;
         this.titular = titular;
+    }
+
+    public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
 
-    public String getTitular() {
-        return titular;
+    public void setTitular(String titular) {
+        this.titular = titular;
     }
 
     public double getSaldo() {
         return saldo;
     }
 
+    public String getTitular() {
+        return titular;
+    }
+    
+    
     @Override
     public String toString() {
-        return "CuentaCorritenteImpl{" + "titular=" + titular + ", saldo=" + saldo + '}';
+        return "CuentaCorrienteImp{" + "saldo=" + saldo + ", titular=" + titular + '}';
     }
-
-    @Override
-    public void ingresa(double ingreso) {
-        saldo += ingreso;
-    }
-
-    
 }

@@ -10,11 +10,7 @@ package bernat.fiol.m03uf05practica4.entidadfinanciera;
  * @author pep
  */
 public abstract class CuentaCorrienteACredito extends CuentaCorritenteImpl {
-
     public CuentaCorrienteACredito(String titular, double saldo) {
         super(titular, saldo);
     }
-
-   
-    
 }

@@ -5,25 +5,28 @@
  */
 package bernat.fiol.m03uf05practica4.entidadfinanciera;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author pep
  */
 public class CuentaCorrienteADebito extends CuentaCorritenteImpl {
 
-    public CuentaCorrienteADebito(String titular, double saldo) {
-        super(titular, saldo);
-    }
-
-    /**
-     * 
-     * Solamente se da un abono si hay saldo, si no se lanza una exception
-     * 
-     * @param abono 
-     */
+    //Solo se da un abono si hay saldo, sino se lanza una excepcion
     @Override
     public void abona(double abono) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(getSaldo() <= abono){
+            setSaldo(getSaldo() - abono); 
+        } else {
+            throw new UnsupportedOperationException("No tens suficient saldo per realitzar aquest abono."); //To change body of generated methods, choose Tools | Templates.
+        }
+        
+    }
+
+    public CuentaCorrienteADebito(String titular, double saldo) {
+        super(titular, saldo);
     }
     
 }
