@@ -14,7 +14,8 @@ import java.util.logging.Logger;
  */
 public abstract class CuentaCorritenteImpl implements CuentaCorriente {
     
-    private double saldo;
+    //private double saldo;
+    protected double saldo;
     private String titular;
     
     public void ingresa(double ingreso) {
@@ -27,9 +28,9 @@ public abstract class CuentaCorritenteImpl implements CuentaCorriente {
         this.titular = titular;
     }
 
-    public void setSaldo(double saldo) {
+    /*public void setSaldo(double saldo) {
         this.saldo = saldo;
-    }
+    }*/
 
     public void setTitular(String titular) {
         this.titular = titular;

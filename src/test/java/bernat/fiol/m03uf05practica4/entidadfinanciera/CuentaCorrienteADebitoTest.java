@@ -18,6 +18,8 @@ import static org.junit.Assert.*;
  */
 public class CuentaCorrienteADebitoTest {
     
+    private CuentaCorritenteImpl conta;
+    
     public CuentaCorrienteADebitoTest() {
     }
     
@@ -31,17 +33,16 @@ public class CuentaCorrienteADebitoTest {
     
     @Before
     public void setUp() {
+        conta = new CuentaCorrienteADebito("asdsad", 1000.0);
     }
     
     @After
     public void tearDown() {
+        conta = null;
     }
 
-
-    //Test amb un abono realitzat correctement
     @Test
     public void testAbona() {
-        CuentaCorritenteImpl conta = new CuentaCorrienteADebito("asdsad", 1000.0);
         conta.abona(999.0);
         double expected = 1.0;
         
@@ -50,7 +51,6 @@ public class CuentaCorrienteADebitoTest {
     
     @Test(expected = UnsupportedOperationException.class)
     public void testAbonaErrorSuperior() {
-        CuentaCorritenteImpl conta = new CuentaCorrienteADebito("asdsad", 1000.0);
         conta.abona(1999.0);
         double expected = 1.0;
         

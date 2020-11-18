@@ -20,7 +20,7 @@ public class CuentaCorrienteACreditoPlatinum extends CuentaCorrienteACredito {
     public void abona(double abono) {
         if (checkAbono(abono)) {
             if ((getSaldo() + 5000) >= abono) {
-                setSaldo(getSaldo() - abono);
+                this.saldo -= abono;
             } else {
                 throw new UnsupportedOperationException("Has sobrepasat el descubert de 5000 euros."); //To change body of generated methods, choose Tools | Templates.
             }

@@ -19,7 +19,7 @@ public class CuentaCorrienteADebito extends CuentaCorritenteImpl {
     public void abona(double abono) {
         if (checkAbono(abono)) {
             if (getSaldo() >= abono) {
-                setSaldo(getSaldo() - abono);
+                this.saldo -= abono;
             } else {
                 throw new UnsupportedOperationException("No tens suficient saldo per realitzar aquest abono."); //To change body of generated methods, choose Tools | Templates.
             }

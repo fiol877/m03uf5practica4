@@ -18,6 +18,8 @@ import static org.junit.Assert.*;
  */
 public class CuentaCorrienteACreditoGoldTest {
     
+    private CuentaCorritenteImpl conta;
+    
     public CuentaCorrienteACreditoGoldTest() {
     }
     
@@ -31,10 +33,12 @@ public class CuentaCorrienteACreditoGoldTest {
     
     @Before
     public void setUp() {
+        conta = new CuentaCorrienteACreditoGold("asdsad", 1000.0);
     }
     
     @After
     public void tearDown() {
+        conta = null;
     }
 
     /**
@@ -43,7 +47,6 @@ public class CuentaCorrienteACreditoGoldTest {
     
     @Test
     public void testAbona() {
-        CuentaCorritenteImpl conta = new CuentaCorrienteACreditoGold("asdsad", 1000.0);
         conta.abona(400);
         double expected = 600;
         
@@ -52,7 +55,6 @@ public class CuentaCorrienteACreditoGoldTest {
     
     @Test
     public void testAbonaDescubert() {
-        CuentaCorritenteImpl conta = new CuentaCorrienteACreditoGold("asdsad", 1000.0);
         conta.abona(4000.0);
         double expected = -3000;
         
@@ -61,7 +63,6 @@ public class CuentaCorrienteACreditoGoldTest {
     
     @Test(expected = UnsupportedOperationException.class)
     public void testAbonaErrorSaldo() {
-        CuentaCorritenteImpl conta = new CuentaCorrienteACreditoGold("asdsad", 1000.0);
         conta.abona(4001.0);
         double expected = -3000;
         
